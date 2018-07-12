@@ -11,6 +11,7 @@ flask-migrate = "*"
 flask-script = "*"
 marshmallow-sqlalchemy = "*"
 flask-marshmallow = "*"
+python-dotenv = "*"
 
 [dev-packages]
 python-dotenv = "*"
@@ -18,4 +19,4 @@ flask-testing = "*"
 nose = "*"
 
 [requires]
-python_version = "3.6"
+python_version = "3.7"
