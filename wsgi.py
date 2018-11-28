@@ -17,16 +17,16 @@ ma = Marshmallow(app)
 from models import Product
 from schemas import product_schema, products_schema
 
-@app.route('/')
+@app.route('/hello')
 def hello():
     return "Hello world!"
 
-@app.route('/api/v1/products')
+@app.route('/products')
 def products():
     products = db.session.query(Product).all()
     return products_schema.jsonify(products)
 
-@app.route('/api/v1/products/<int:id>')
+@app.route('/products/<int:id>')
 def product(id):
     product = db.session.query(Product).get(id)
     return product_schema.jsonify(product)
