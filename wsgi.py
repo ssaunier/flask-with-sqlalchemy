@@ -23,6 +23,9 @@ def hello():
 
 @app.route('/products')
 def products():
+    from tasks import very_slow_add
+    very_slow_add.delay(1, 2)
+
     products = db.session.query(Product).all()
     return products_schema.jsonify(products)
 
