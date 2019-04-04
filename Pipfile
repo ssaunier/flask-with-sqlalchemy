@@ -12,6 +12,7 @@ flask-script = "*"
 marshmallow-sqlalchemy = "*"
 flask-marshmallow = "*"
 python-dotenv = "*"
+celery = {extras = ["redis"],version = "*"}
 
 [dev-packages]
 python-dotenv = "*"
