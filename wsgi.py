@@ -17,8 +17,11 @@ ma = Marshmallow(app)
 from models import Product
 from schemas import product_schema, products_schema
 
+from tasks import very_slow_add
+
 @app.route('/hello')
 def hello():
+    very_slow_add.delay(1, 2)
     return "Hello world!"
 
 @app.route('/products')
