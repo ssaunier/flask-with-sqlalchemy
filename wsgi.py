@@ -17,18 +17,15 @@ ma = Marshmallow(app)
 from models import Product
 from schemas import product_schema, products_schema
 
-from tasks import very_slow_add
-
 @app.route('/hello')
 def hello():
+    from tasks import very_slow_add
     very_slow_add.delay(1, 2)
+
     return "Hello world!"
 
 @app.route('/products')
 def products():
-    from tasks import very_slow_add
-    very_slow_add.delay(1, 2)
-
     products = db.session.query(Product).all()
     return products_schema.jsonify(products)
 
